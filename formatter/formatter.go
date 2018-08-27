@@ -12,7 +12,7 @@ import (
 var stackLocation = 17
 
 func asctime() string {
-  return time.Now().Format("2016-01-02 01:02:03")
+  return time.Now().Format("2006-01-02 01:02:03")
 }
 
 func created() int64 {
