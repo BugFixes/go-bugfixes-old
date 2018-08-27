@@ -2,7 +2,7 @@ package bugfixes
 
 import (
   "fmt"
-  "go-bugfixes/formatter"
+  "github.com/bugfixes/go-bugfixes/formatter"
   "io"
   "log"
   "os"

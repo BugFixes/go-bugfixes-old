@@ -1,1 +1,1 @@
-module go-bugfixes
+module github.com/bugfixes/go-bugfixes
