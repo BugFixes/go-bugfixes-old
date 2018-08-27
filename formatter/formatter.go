@@ -75,7 +75,7 @@ func New(pattern string) (*LogFormatter, error) {
 func (logFormatter *LogFormatter) Format(writer *io.Writer, message *LogMessage) {
   err := logFormatter.Template.Execute(*writer, message)
   if err != nil {
-    log.Printf("bugfixes package failed to emit %s to %s", err, writer)
+    log.Printf("bugfixes package failed to emit %s to %v", err, writer)
   }
 }
 
