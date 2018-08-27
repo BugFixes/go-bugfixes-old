@@ -143,21 +143,21 @@ func AddHander(h *LogHandler) {
 }
 
 func Log(message string, a ...interface{}) {
-  get().Log("\u2111 " + message + "\n", a...)
+  get().Log("\u2111 " + message, a...)
 }
 
 func Info(message string, a ...interface{}) {
-  get().Info("\u203c " + message + "\n", a...)
+  get().Info("\u203c " + message, a...)
 }
 
 func Warn(message string, a ...interface{}) {
-  get().Warn("\u203c " + message + "\n", a...)
+  get().Warn("\u203c " + message, a...)
 }
 
 func Error(message string, a ...interface{}) {
-  get().Error("\u2206 " + message + "\n", a...)
+  get().Error("\u2206 " + message, a...)
 }
 
 func Fatal(message string, a ...interface{}) {
-  get().Fatal("\u2620 " + message + "\n", a...)
+  get().Fatal("\u2620 " + message, a...)
 }
