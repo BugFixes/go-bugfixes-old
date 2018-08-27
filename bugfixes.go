@@ -3,6 +3,7 @@ package bugfixes
 import (
   "fmt"
   "github.com/bugfixes/go-bugfixes/formatter"
+  "github.com/bugfixes/go-bugfixes/network"
   "io"
   "log"
   "os"
@@ -114,6 +115,7 @@ func dispatchMessage(handlers []*LogHandler, levelNum int, level string, message
   for _, handler := range handlers {
     if handler.Level <= levelNum {
       handler.emit(formatLevel(levelNum, level, message, args...))
+      go network.Emit(levelNum, level, message, args...)
     }
   }
 }
