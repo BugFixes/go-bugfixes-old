@@ -101,7 +101,7 @@ var defaultHandler, err = NewHandler(LOG, os.Stdout)
 
 func formatLevel(levelno int, level, message string, args ...interface{}) *formatter.LogMessage {
   return &formatter.LogMessage{
-    Message: fmt.Sprint(message + "\n", args...),
+    Message: fmt.Sprintf(message + "\n", args...),
     Level: level,
     LevelNum: levelno,
   }
@@ -158,6 +158,6 @@ func Error(message string, a ...interface{}) {
   get().Error(message, a...)
 }
 
-func Fata(message string, a ...interface{}) {
+func Fatal(message string, a ...interface{}) {
   get().Fatal(message, a...)
 }
