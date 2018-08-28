@@ -39,11 +39,6 @@ type LoggerInterface interface {
   SetFormatter(template string, a ...interface{})
 }
 
-type rootLogger struct {
-  handlers []*LogHandler
-  formatter string
-}
-
 var instance *rootLogger
 var once sync.Once
 
@@ -53,12 +48,6 @@ func get() *rootLogger {
   })
 
   return instance
-}
-
-type LogHandler struct {
-  Writer *io.Writer
-  Level int
-  Formatter *formatter.LogFormatter
 }
 
 func (h *LogHandler) SetFormatter(pattern string) (*LogHandler, error) {

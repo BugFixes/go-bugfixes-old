@@ -11,15 +11,15 @@ import (
 
 var stackLocation = 17
 
-func asctime() string {
+func asctime() (string) {
   return time.Now().Format("2006-01-02 15:04:05")
 }
 
-func created() int64 {
+func created() (int64) {
   return time.Now().Unix()
 }
 
-func filename() string {
+func filename() (string) {
   _, filename, _, ok := runtime.Caller(stackLocation)
   if !ok {
     return "<unknown>"
@@ -27,7 +27,7 @@ func filename() string {
   return filename
 }
 
-func lineno() int {
+func lineno() (int) {
   _, _, lineno, ok := runtime.Caller(stackLocation)
   if !ok {
     return -1
@@ -35,7 +35,7 @@ func lineno() int {
   return lineno
 }
 
-func linenoAndLineno() string {
+func linenoAndLineno() (string) {
   _, filename, lineno, ok := runtime.Caller(stackLocation)
   if !ok {
     return "<unknown>: -1"
@@ -50,16 +50,6 @@ var functions = template.FuncMap{
   "filename": filename,
   "lineno": lineno,
   "fileline": linenoAndLineno,
-}
-
-type LogMessage struct {
-  Message string
-  Level string
-  LevelNum int
-}
-
-type LogFormatter struct {
-  Template *template.Template
 }
 
 func New(pattern string) (*LogFormatter, error) {
